@@ -14,7 +14,7 @@ namespace UnityEssentials
     [RequireComponent(typeof(Camera))]
     public class CameraFrameRateLimiter : MonoBehaviour
     {
-        public FrameRateLimiterSettings FrameRateLimiterSettings;
+        public FrameRateLimiterSettings Settings;
 
         private Camera _camera;
         private double _nextRenderTime;
@@ -40,9 +40,9 @@ namespace UnityEssentials
 
         public void TryRender()
         {
-            if (FrameRateLimiterSettings.FrameRate <= 0)
+            if (Settings.FrameRate <= 0)
             {
-                if (FrameRateLimiterSettings.SendRenderRequest) SendRenderRequest();
+                if (Settings.SendRenderRequest) SendRenderRequest();
                 else _camera.enabled = true;
 
                 return;
@@ -50,12 +50,12 @@ namespace UnityEssentials
 
             _camera.enabled = false;
             double currentTime = Time.timeAsDouble;
-            if (currentTime >= _nextRenderTime && FrameRateLimiterSettings.FrameRate > 0)
+            if (currentTime >= _nextRenderTime && Settings.FrameRate > 0)
             {
-                if (FrameRateLimiterSettings.SendRenderRequest) SendRenderRequest();
+                if (Settings.SendRenderRequest) SendRenderRequest();
                 else _camera.enabled = true;
 
-                _nextRenderTime = currentTime + (1.0 / FrameRateLimiterSettings.FrameRate);
+                _nextRenderTime = currentTime + (1.0 / Settings.FrameRate);
             }
         }
 
