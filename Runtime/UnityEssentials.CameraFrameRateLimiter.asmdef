@@ -1,0 +1,16 @@
+{
+    "name": "UnityEssentials.CameraFrameRateLimiter",
+    "rootNamespace": "UnityEssentials",
+    "references": [
+        "GUID:dad9d5ccebd97cd4d90636674393ccb8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
