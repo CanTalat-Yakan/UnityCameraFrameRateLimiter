@@ -38,11 +38,15 @@ namespace UnityEssentials
                 _camera.enabled = true;
         }
 
+        public void SetTargetFrameRate(int frameRate) =>
+            Settings.FrameRate = frameRate;
+
         public void TryRender()
         {
             if (Settings.FrameRate <= 0)
             {
-                if (Settings.SendRenderRequest) SendRenderRequest();
+                if (Settings.SendRenderRequest)
+                    SendRenderRequest();
                 else _camera.enabled = true;
 
                 return;
