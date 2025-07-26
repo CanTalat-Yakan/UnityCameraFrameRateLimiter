@@ -56,7 +56,8 @@ namespace UnityEssentials
             double currentTime = Time.timeAsDouble;
             if (currentTime >= _nextRenderTime && Settings.FrameRate > 0)
             {
-                if (Settings.SendRenderRequest) SendRenderRequest();
+                if (Settings.SendRenderRequest) 
+                    SendRenderRequest();
                 else _camera.enabled = true;
 
                 _nextRenderTime = currentTime + (1.0 / Settings.FrameRate);
